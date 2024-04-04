@@ -1,4 +1,3 @@
-simple solution
 class Solution{
     public static long sumSubstrings(String s){
         long mod = (long)1e9+7;
