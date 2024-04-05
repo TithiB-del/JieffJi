@@ -1,0 +1,42 @@
+class Solution
+{
+	//Complete this function
+	//Function to return the minimum number of operations required to make all elements equal.
+	public int min_operations(List<int> nums)
+	{
+		//Your code here
+		List<int> ge = new List<int>();
+		for (int i = 0; i < nums.Count; i++)
+		{
+			int j = BisectRight(ge, nums[i] - i);
+			if (j == ge.Count)
+			{
+				ge.Add(nums[i] - i);
+			}
+			else
+			{
+				ge[j] = nums[i] - i;
+			}
+		}
+		return nums.Count - ge.Count;
+	}
+	
+	private int BisectRight(List<int> ge, int x)
+	{
+		int lo = 0;
+		int hi = ge.Count;
+		while (lo < hi)
+		{
+			int mid = (lo + hi) >> 1;
+			if (ge[mid] > x)
+			{
+				hi = mid;
+			}
+			else
+			{
+				lo = mid + 1;
+			}
+		}
+		return lo;
+	}
+}
