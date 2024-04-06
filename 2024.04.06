@@ -1,0 +1,5 @@
+class Solution {
+    Long countWays(int n) {
+        return (long)(Math.floor(n/2)) + 1L;
+    }
+}
