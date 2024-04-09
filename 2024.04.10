@@ -1,0 +1,9 @@
+class Solution{
+    static int findSingle(int n, int arr[]){
+        int a=arr[0];
+        for(int i=1; i<n; i++){
+            a^=arr[i];
+        }
+        return a;
+    }
+}
