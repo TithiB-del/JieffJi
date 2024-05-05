@@ -1,0 +1,24 @@
+class Solution{
+    void ans(Node root, int line, TreeMap<Integer,Integer>tm){
+        
+        if(root==null)return;
+        int c=tm.getOrDefault(line,0);
+        tm.put(line,c+root.data);
+        ans(root.left,line-1,tm);
+        ans(root.right,line+1,tm);
+        
+        
+    }
+    
+    
+    public ArrayList <Integer> verticalSum(Node root) {
+        TreeMap<Integer,Integer>tm= new TreeMap<>();
+        ans(root,0,tm);
+        ArrayList<Integer> al= new ArrayList<>();
+        
+        for(int i: tm.values()){
+            al.add(i);
+        }
+        return al;
+    }
+}
